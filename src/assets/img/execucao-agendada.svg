@@ -1,0 +1,39 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  
+  <!-- Texto -->
+  <text x="50%" y="50" font-family="Arial, sans-serif" font-size="24" fill="#1266e3" text-anchor="middle">
+    Execução agendada com sucesso!
+  </text>
+
+  <!-- Relógio -->
+  <g transform="translate(200,130)">
+    <circle cx="0" cy="0" r="50" fill="#fff" stroke="#1266e3" stroke-width="4"/>
+    <circle cx="0" cy="0" r="2" fill="#1266e3"/>
+    
+    <!-- Marcadores de horas -->
+    <line x1="0" y1="-45" x2="0" y2="-50" stroke="#1266e3" stroke-width="4"/>
+    <line x1="0" y1="45" x2="0" y2="50" stroke="#1266e3" stroke-width="4" transform="rotate(180)"/>
+    <line x1="45" y1="0" x2="50" y2="0" stroke="#1266e3" stroke-width="4" transform="rotate(90)"/>
+    <line x1="-45" y1="0" x2="-50" y2="0" stroke="#1266e3" stroke-width="4" transform="rotate(270)"/>
+
+    <!-- Ponteiro das horas -->
+    <line x1="0" y1="0" x2="0" y2="-20" stroke="#1266e3" stroke-width="6" stroke-linecap="round">
+      <animate attributeName="transform" 
+               type="rotate" 
+               from="0 0 0" 
+               to="360 0 0" 
+               dur="60s" 
+               repeatCount="indefinite"/>
+    </line>
+
+    <!-- Ponteiro dos minutos -->
+    <line x1="0" y1="0" x2="0" y2="-30" stroke="#1266e3" stroke-width="4" stroke-linecap="round">
+      <animate attributeName="transform" 
+               type="rotate" 
+               from="0 0 0" 
+               to="360 0 0" 
+               dur="3600s" 
+               repeatCount="indefinite"/>
+    </line>
+  </g>
+</svg>

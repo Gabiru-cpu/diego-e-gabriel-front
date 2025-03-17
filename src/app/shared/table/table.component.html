@@ -1,0 +1,55 @@
+<div *ngIf="!isMobile" class="table-wrapper">
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns">
+            {{ column }}
+            <i class="fa fa-sort" aria-hidden="true"></i>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of data">
+          <td *ngFor="let column of columns">
+            <span *ngIf="row[column] === 'Concluído' || row[column] === 'Cancelado'" class="status">
+              {{ row[column] }}
+            </span>
+            <ng-container *ngIf="row[column] !== 'Concluído' && row[column] !== 'Cancelado'">
+              {{ row[column] }}
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="isMobile" class="card-list">
+  <div class="card-item" *ngFor="let row of data">
+    <h2>{{ columns[0] }}:</h2>
+    <p class="action">{{ row[columns[0]] }}</p>
+    <hr>
+    <div class="card-row">
+      <div>
+        <p class="label">{{ columns[1] }}:</p>
+        <p class="value">{{ row[columns[1]] }}</p>
+      </div>
+      <div>
+        <p class="label">{{ columns[2] }}:</p>
+        <span class="value">{{ row[columns[2]] }}</span>
+      </div>
+    </div>
+    <hr>
+    <div class="card-row">
+      <div>
+        <p class="label">{{ columns[3] }}:</p>
+        <p class="value">{{ row[columns[3]] }}</p>
+      </div>
+      <div>
+        <p class="label">{{ columns[4] }}:</p>
+        <span class="status">{{ row[columns[4]] }}</span>
+      </div>
+    </div>
+  </div>
+</div>
