@@ -27,7 +27,9 @@ export class TableComponent implements OnInit {
   }
 
   private checkScreenSize(): void {
-    this.isMobile = window.innerWidth < 768;
+    if (typeof window !== 'undefined') {
+      this.isMobile = window.innerWidth < 768;
+    }
   }
 
   get totalPages(): number {

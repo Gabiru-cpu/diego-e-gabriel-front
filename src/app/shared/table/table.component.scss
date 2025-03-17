@@ -108,50 +108,74 @@ table {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f3f4f6; /* bg-gray-100 */
   gap: 1rem;
-  padding: 1rem;
+
+
+
+
+  .card-item {
+    padding: 0 1.5rem 1rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0px 1px 5px 0px #0000001F,
+                0px 2px 2px 0px #00000024,
+                0px 1px 1px 0px #00000033; /* shadow-md */
+    width: 25rem;
+  }
+
+  .card-item h2 {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+
+  }
+
+  .card-item .action {
+    color: #374151; /* text-gray-700 */
+
+  }
+
+  .card-item hr {
+
+    border: none;
+    border-top: 1px solid #ddd;
+  }
+
+  .card-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem; // Adiciona um espaço uniforme entre os elementos
+
+    div {
+      flex: 1; // Faz os elementos ocuparem o mesmo espaço
+      min-width: 8rem; // Define um tamanho mínimo para não ficarem muito pequenos
+      display: flex;
+      flex-direction: column;
+    }
+
+    .status-card {
+      font-weight: bold;
+    background-color: #F2F2F2;
+    border: solid 2px #BFBFBF;
+    border-radius: 1rem;
+    padding: 5px;
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    }
+
+    .label-g {
+      margin-top: 0;
+      color: #6b7280; /* text-gray-500 */
+    }
+
+    .label {
+      margin-top: 0;
+      color: #000;
+    }
+
+    .value {
+      margin-top: 0;
+      color: #374151; /* text-gray-700 */
+    }
+  }
+
 }
-
-.card-item {
-  background-color: #ffffff; /* bg-white */
-  padding: 1.5rem; /* p-6 */
-  border-radius: 0.5rem; /* rounded-lg */
-  box-shadow: 0px 1px 5px 0px #0000001F,
-              0px 2px 2px 0px #00000024,
-              0px 1px 1px 0px #00000033; /* shadow-md */
-  width: 20rem; /* w-80 */
-}
-
-.card-item h2 {
-  font-size: 1.125rem; /* text-lg */
-  font-weight: 600; /* font-semibold */
-  margin-bottom: 0.5rem; /* mb-2 */
-}
-
-.card-item .action {
-  color: #374151; /* text-gray-700 */
-  margin-bottom: 1rem; /* mb-4 */
-}
-
-.card-item hr {
-  margin-bottom: 1rem; /* mb-4 */
-  border: none;
-  border-top: 1px solid #ddd;
-}
-
-.card-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem; /* mb-4 */
-}
-
-.card-row .label {
-  color: #6b7280; /* text-gray-500 */
-}
-
-.card-row .value {
-  color: #374151; /* text-gray-700 */
-}
-
-

@@ -1,4 +1,4 @@
-<div *ngIf="!isMobile" class="table-wrapper">
+<div class="table-wrapper" *ngIf="!isMobile">
   <div class="table-container">
     <table>
       <thead>
@@ -10,9 +10,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of data">
-          <td *ngFor="let column of columns">
-            <span *ngIf="row[column] === 'Concluído' || row[column] === 'Cancelado'" class="status">
+        <tr *ngFor="let row of paginatedData">
+          <td *ngFor="let column of columns" class="py-2 px-4 border-b">
+            <span *ngIf="row[column] === 'Concluído' || row[column] === 'Cancelado'"
+                  class="status">
               {{ row[column] }}
             </span>
             <ng-container *ngIf="row[column] !== 'Concluído' && row[column] !== 'Cancelado'">
@@ -22,6 +23,28 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="pagination">
+    <div class="rows-per-page">
+      <label for="itemsPerPage">Linhas por página: </label>
+      <select id="itemsPerPage" (change)="changeItemsPerPage($event)">
+        <option *ngFor="let option of pageOptions" [value]="option" [selected]="option === itemsPerPage">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+    <div class="pagination-buttons">
+      <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button *ngFor="let page of pages" (click)="changePage(page)" [class.active]="currentPage === page">
+        {{ page }}
+      </button>
+      <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
   </div>
 </div>
 
@@ -43,13 +66,14 @@
     <hr>
     <div class="card-row">
       <div>
-        <p class="label">{{ columns[3] }}:</p>
+        <p class="label-g">{{ columns[3] }}:</p>
         <p class="value">{{ row[columns[3]] }}</p>
       </div>
       <div>
-        <p class="label">{{ columns[4] }}:</p>
-        <span class="status">{{ row[columns[4]] }}</span>
+        <p class="label-g">{{ columns[4] }}:</p>
+        <span class="status-card">{{ row[columns[4]] }}</span>
       </div>
     </div>
   </div>
 </div>
+
